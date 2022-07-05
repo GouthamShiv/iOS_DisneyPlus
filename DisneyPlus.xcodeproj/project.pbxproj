@@ -19,6 +19,7 @@
 		6DA89BF12874347000749770 /* SquareButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA89BF02874347000749770 /* SquareButtonStyle.swift */; };
 		6DA89BF42874471E00749770 /* HorizontalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA89BF32874471E00749770 /* HorizontalList.swift */; };
 		6DA89BF6287448B000749770 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA89BF5287448B000749770 /* ImageExtension.swift */; };
+		6DA89BF928744E5E00749770 /* MovieGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA89BF828744E5E00749770 /* MovieGroupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		6DA89BF02874347000749770 /* SquareButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareButtonStyle.swift; sourceTree = "<group>"; };
 		6DA89BF32874471E00749770 /* HorizontalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalList.swift; sourceTree = "<group>"; };
 		6DA89BF5287448B000749770 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
+		6DA89BF828744E5E00749770 /* MovieGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGroupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		6DA89BE2287420A500749770 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				6DA89BF728744E3D00749770 /* Detail */,
 				6DA89BF2287445A900749770 /* ChildViews */,
 				6DA89BE3287420BE00749770 /* HomeViewModel.swift */,
 				6DA89BE5287426DD00749770 /* HomeView.swift */,
@@ -113,6 +116,14 @@
 				6DA89BF32874471E00749770 /* HorizontalList.swift */,
 			);
 			path = ChildViews;
+			sourceTree = "<group>";
+		};
+		6DA89BF728744E3D00749770 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				6DA89BF828744E5E00749770 /* MovieGroupView.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +204,7 @@
 				6DA89BD528741A7C00749770 /* DisneyPlusApp.swift in Sources */,
 				6DA89BE9287427C200749770 /* ColorExtension.swift in Sources */,
 				6DA89BEF287432E800749770 /* ButtonGroupView.swift in Sources */,
+				6DA89BF928744E5E00749770 /* MovieGroupView.swift in Sources */,
 				6DA89BEC28742DE700749770 /* MovieCarouselView.swift in Sources */,
 				6DA89BF42874471E00749770 /* HorizontalList.swift in Sources */,
 			);

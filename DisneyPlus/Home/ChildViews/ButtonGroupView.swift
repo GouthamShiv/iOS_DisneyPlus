@@ -13,7 +13,9 @@ struct ButtonGroupView: View {
     var body: some View {
         NavigationLink(tag: _groupName ?? MovieGroup.disney.rawValue,
                        selection: $_groupName,
-                       destination: {Text("Destination")}) {
+                       destination: { MovieGroupView(
+                        movieGroup: MovieGroup(
+                            rawValue: _groupName ?? MovieGroup.disney.rawValue) ?? .disney)}) {
             EmptyView()
         }
         HStack {
