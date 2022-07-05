@@ -18,7 +18,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $_selection) {
-            Text("Tab Content 1")
+            HomeView()
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home")

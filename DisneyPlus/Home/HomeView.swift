@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @EnvironmentObject var homeVM: HomeViewModel
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -22,6 +25,8 @@ struct HomeView: View {
                             .frame(width: 75, height: 40)
                             .aspectRatio(2, contentMode: .fit)
                         
+                        MovieCarouselView(pageViews: homeVM.pageViews)
+                        
                         Spacer()
                     }
                 }
@@ -35,7 +40,9 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
             .environment(\.colorScheme, .light)
+            .environmentObject(HomeViewModel())
         HomeView()
             .environment(\.colorScheme, .dark)
+            .environmentObject(HomeViewModel())
     }
 }
