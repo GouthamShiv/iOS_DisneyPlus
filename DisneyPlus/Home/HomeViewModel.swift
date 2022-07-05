@@ -31,6 +31,14 @@ enum ListGroup {
     }
 }
 
+enum MovieGroup: String {
+    case disney
+    case pixar
+    case marvel
+    case starWars
+    case natgeo
+}
+
 class HomeViewModel: ObservableObject, Identifiable {
     @Published var pageViews = [Image]()
     @Published var newPosters = [Image]()

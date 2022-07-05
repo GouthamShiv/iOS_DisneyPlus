@@ -27,6 +27,8 @@ struct HomeView: View {
                         
                         MovieCarouselView(pageViews: homeVM.pageViews)
                         
+                        ButtonGroupView()
+                        
                         Spacer()
                     }
                 }
