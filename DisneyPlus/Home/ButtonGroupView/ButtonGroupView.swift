@@ -47,7 +47,7 @@ struct ButtonGroupView: View {
                 image(name: "logo-natgeo")
             }
         }
-        .buttonStyle(SquareButtonStyle(size: UIScreen.main.bounds.width/6))
+        .buttonStyle(SquareButtonStyle(size: UIScreen.main.bounds.width/6)) // Divided by 6 because, we have 5 buttons and need equal spacing between them
     }
     
     private func image(name: String) -> some View {

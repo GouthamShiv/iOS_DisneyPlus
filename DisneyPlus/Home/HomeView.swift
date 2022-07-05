@@ -15,7 +15,10 @@ struct HomeView: View {
         NavigationView {
             ZStack {
                 Rectangle()
-                    .fill(LinearGradient(gradient: Gradient(colors: [Color.black, Color.darkGrey.opacity(0.9)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .fill(LinearGradient(
+                        gradient: Gradient(colors: [Color.black, Color.darkGrey.opacity(0.9)]),
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing))
                     .edgesIgnoringSafeArea(.all)
                 
                 ScrollView(showsIndicators: false) {
