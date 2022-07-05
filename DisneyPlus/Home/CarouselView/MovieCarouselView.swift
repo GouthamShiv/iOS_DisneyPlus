@@ -14,7 +14,7 @@ struct MovieCarouselView: View {
     
     var body: some View {
         VStack(spacing: 10) {
-            TabView(selection: $_currentIndex) {
+            TabView(selection: $_currentIndex.animation()) {
                 ForEach(0 ..< pageViews.count, id: \.self) { index in
                     pageViews[index]
                         .resizable()
