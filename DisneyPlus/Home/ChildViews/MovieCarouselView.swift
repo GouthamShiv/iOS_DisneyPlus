@@ -27,7 +27,7 @@ struct MovieCarouselView: View {
             HStack {
                 ForEach(0 ..< pageViews.count, id: \.self) { index in
                     Circle()
-                        .fill(index == _currentIndex ? Color.red : Color.red.opacity(0.3))
+                        .fill(index == _currentIndex ? Color.white : Color.white.opacity(0.3))
                         .frame(width: 5, height: 5)
                         .scaleEffect(index == _currentIndex ? 1.5 : 1)
                 }

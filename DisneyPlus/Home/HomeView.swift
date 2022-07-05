@@ -31,6 +31,11 @@ struct HomeView: View {
                         MovieCarouselView(pageViews: homeVM.pageViews)
                         
                         ButtonGroupView()
+                            .padding(.top, -15)
+                            .padding(.bottom, 15)
+                        
+                        HorizontalList(group: .recommendation)
+                        HorizontalList(group: .new)
                         
                         Spacer()
                     }
