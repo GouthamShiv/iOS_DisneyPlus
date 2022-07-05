@@ -7,8 +7,18 @@
 
 import SwiftUI
 
+struct ScrollViewOffsetPreferenceKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+    
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = nextValue()
+    }
+}
+
 struct MovieGroupView: View {
     @Environment(\.dismiss) var dismiss
+    @State private var _logoOpacity: CGFloat = 0
+    @State private var _bgOpacity: CGFloat = 0
     var movieGroup: MovieGroup
     
     var body: some View {
@@ -20,6 +30,7 @@ struct MovieGroupView: View {
                 Image("bg-\(movieGroup.rawValue)")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .opacity(Double(_bgOpacity))
                 
                 Rectangle()
                     .fill(LinearGradient(gradient: Gradient(colors: [Color.clear, Color.black]),
@@ -39,6 +50,7 @@ struct MovieGroupView: View {
                             .resizable()
                             .aspectRatio(2.8, contentMode: .fit)
                             .frame(height: 25)
+                            .opacity(1 - Double(_logoOpacity))
                     }
                 }
             
@@ -50,6 +62,7 @@ struct MovieGroupView: View {
                         .frame(height: 75)
                         .padding(.top, 130)
                         .padding(.bottom, 20)
+                        .opacity(Double(_logoOpacity))
                     
                     HorizontalList(group: .recommendation)
                     HorizontalList(group: .new)
@@ -59,7 +72,24 @@ struct MovieGroupView: View {
                     
                     Spacer()
                 })
+                GeometryReader { geo in
+                    let offset = geo.frame(in: .named("scrollView")).maxY
+                    Color.clear.preference(key: ScrollViewOffsetPreferenceKey.self, value: offset)
+                }
             })
+            .coordinateSpace(name: "scrollView")
+            .onPreferenceChange(ScrollViewOffsetPreferenceKey.self) { offsetValue in
+                if ScrollViewOffsetPreferenceKey.defaultValue == 0 {
+                    ScrollViewOffsetPreferenceKey.defaultValue = offsetValue
+                }
+                // approx value to get the fade-in fade-out animation
+                let logoHeightToFade: CGFloat = 75
+                self._logoOpacity = (logoHeightToFade - max((ScrollViewOffsetPreferenceKey.defaultValue - offsetValue), 0)) / logoHeightToFade
+                
+                // approx value to get the fade-in fade-out animation
+                let bgHeightToFade: CGFloat = 275
+                self._bgOpacity = (bgHeightToFade - max((ScrollViewOffsetPreferenceKey.defaultValue - offsetValue), 0)) / bgHeightToFade
+            }
         }
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -74,6 +104,7 @@ struct MovieGroupView: View {
                 })
             })
         }
+        .background()
     }
 }
 

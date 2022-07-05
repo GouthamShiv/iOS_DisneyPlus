@@ -9,6 +9,11 @@ import SwiftUI
 
 struct ButtonGroupView: View {
     @State private var _groupName: String? = nil
+    
+    init() {
+        UINavigationBar.appearance().barTintColor = .black
+        UINavigationBar.appearance().alpha = 0.20
+    }
 
     var body: some View {
         NavigationLink(tag: _groupName ?? MovieGroup.disney.rawValue,
